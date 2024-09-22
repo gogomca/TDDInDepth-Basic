@@ -11,6 +11,20 @@ import static org.junit.jupiter.api.Assertions.*;
 class ProductInventoryTest {
 
     @Test
+    void shouldRetrieveDefaultStockWhenEmptyInventory(){
+        // GIVEN
+        var productId = "PR1";
+        var expectedQuantity = 0;
+        var productInventory = new ProductInventory();
+
+        // WHEN
+        int quantity = productInventory.checkStock(productId);
+
+        // THEN
+        assertEquals(expectedQuantity, quantity);
+    }
+
+    @Test
     void shouldAddProductsToStockSuccessfully() {
         // GIVEN
         var productId = "PR1";
